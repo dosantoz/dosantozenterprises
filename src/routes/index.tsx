@@ -1,26 +1,50 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Nav } from "@/components/site/Nav";
+import { Hero } from "@/components/site/Hero";
+import { Marquee } from "@/components/site/Marquee";
+import { About } from "@/components/site/About";
+import { Portfolio } from "@/components/site/Portfolio";
+import { Services } from "@/components/site/Services";
+import { Testimonials } from "@/components/site/Testimonials";
+import { Pricing } from "@/components/site/Pricing";
+import { Contact } from "@/components/site/Contact";
+import { Footer } from "@/components/site/Footer";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Dosantoz Enterprises — Creative Graphic Design Solutions" },
+      {
+        name: "description",
+        content:
+          "Premium graphic design studio: posters, branding, motion graphics, social media designs, event flyers and 3D text designs.",
+      },
+      { property: "og:title", content: "Dosantoz Enterprises — Creative Graphic Design" },
+      {
+        property: "og:description",
+        content:
+          "Posters • Branding • Motion Graphics • Social Media Designs • Event Flyers • 3D Text Designs.",
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  return (
+    <main className="relative min-h-screen overflow-x-hidden">
+      <Nav />
+      <Hero />
+      <Marquee />
+      <About />
+      <Portfolio />
+      <Services />
+      <Testimonials />
+      <Pricing />
+      <Contact />
+      <Footer />
+      <WhatsAppButton />
+    </main>
+  );
 }
