@@ -9,7 +9,7 @@ const works = [
   { img: w1, title: "Afrobeat Night", tag: "Event Flyer" },
   { img: w2, title: "Neon Skyline", tag: "Cyberpunk Concept" },
   { img: w3, title: "Kakrpar Identity", tag: "Branding" },
-  { img: w4, title: "Travel — Safari", tag: "Travel Poster" },
+  { img: w4, title: "Watoi Waskie Fiti", tag: "Charity Flyer" },
   { img: w5, title: "Mobile Campaign", tag: "Social Media" },
   { img: w6, title: "Gold 3D Type", tag: "3D Text Design" },
 ];
