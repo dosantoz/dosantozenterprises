@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import logo from "@/assets/logo.png";
+
 
 const links = [
   { href: "#home", label: "Home" },
