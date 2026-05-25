@@ -6,12 +6,12 @@ import w5 from "@/assets/work-5.jpg";
 import w6 from "@/assets/work-6.jpg";
 
 const works = [
-  { img: w1, title: "Happy Birthday Tash", tag: "Posters" },
-  { img: w2, title: "Twende Nyeri County", tag: "Posters" },
-  { img: w3, title: "Watoi Waskie Fiti", tag: "Posters" },
-  { img: w4, title: "Freaky Friday — Bar 8", tag: "Posters" },
-  { img: w5, title: "Gen Z Connect", tag: "Posters" },
-  { img: w6, title: "Dubai Ndogo Xperience", tag: "Posters" },
+  { img: w1, title: "ROAD TRIPS", tag: "ONLINE POSTERS" },
+  { img: w2, title: "ROAD TRIP POSTERS", tag: "ONLINE POSTERS" },
+  { img: w3, title: "CHARITY POSTERS", tag: "ONLINE POSTERS" },
+  { img: w4, title: "CLUB POSTERS", tag: "ONLINE POSTERS" },
+  { img: w5, title: "ROAD TRIPS", tag: "ONLINE POSTERS" },
+  { img: w6, title: "TRIP POSTERS", tag: "ONLINE POSTERS" },
 ];
 
 export function Portfolio() {
