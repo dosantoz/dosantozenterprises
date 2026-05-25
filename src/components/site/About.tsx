@@ -1,3 +1,5 @@
+import logo from "@/assets/logo.png";
+
 export function About() {
   return (
     <section id="about" className="relative py-24 md:py-32">
