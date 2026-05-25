@@ -30,13 +30,9 @@ export function Nav() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5">
         <a href="#home" className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-lg glass shadow-glow">
-            <span className="font-display text-sm font-bold text-gradient">D</span>
-          </span>
-          <span className="font-display text-sm font-bold tracking-widest">
-            DOSANTOZ<span className="text-primary">.</span>
-          </span>
+          <img src={logo} alt="Dosantoz Enterprises" className="h-9 w-auto md:h-10" />
         </a>
+
 
         <nav className="hidden items-center gap-1 rounded-full glass px-2 py-1.5 text-sm md:flex">
           {links.map((l) => (
