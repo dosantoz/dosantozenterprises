@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import w1 from "@/assets/work-1.jpg";
 import w2 from "@/assets/work-2.jpg";
 import w3 from "@/assets/work-3.jpg";
@@ -17,6 +19,9 @@ const works = [
 ];
 
 export function Portfolio() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const active = activeIndex !== null ? works[activeIndex] : null;
+
   return (
     <section id="portfolio" className="relative py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-5">
@@ -34,9 +39,11 @@ export function Portfolio() {
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {works.map((w, i) => (
-            <article
-              key={w.title}
-              className={`group relative overflow-hidden rounded-3xl glass shadow-glow ${
+            <button
+              type="button"
+              key={w.title + i}
+              onClick={() => setActiveIndex(i)}
+              className={`group relative overflow-hidden rounded-3xl glass shadow-glow text-left ${
                 i === 0 ? "lg:row-span-2 lg:aspect-auto" : "aspect-[4/5]"
               }`}
             >
@@ -60,10 +67,29 @@ export function Portfolio() {
                   </span>
                 </div>
               </div>
-            </article>
+            </button>
           ))}
         </div>
       </div>
+
+      <Dialog open={active !== null} onOpenChange={(o) => !o && setActiveIndex(null)}>
+        <DialogContent className="max-w-5xl w-full bg-background/95 border-0 p-2 sm:p-4">
+          <DialogTitle className="sr-only">{active?.title ?? "Poster preview"}</DialogTitle>
+          {active && (
+            <div className="flex flex-col items-center gap-3">
+              <img
+                src={active.img}
+                alt={active.title}
+                className="max-h-[85vh] w-auto max-w-full rounded-lg object-contain"
+              />
+              <div className="text-center">
+                <div className="text-xs uppercase tracking-widest text-accent">{active.tag}</div>
+                <h3 className="font-display text-xl font-bold">{active.title}</h3>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
