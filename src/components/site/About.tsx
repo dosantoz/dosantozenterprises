@@ -1,3 +1,5 @@
+import logo from "@/assets/logo.png";
+
 export function About() {
   return (
     <section id="about" className="relative py-24 md:py-32">
@@ -33,8 +35,7 @@ export function About() {
             <div className="absolute inset-0 bg-gradient-to-br from-[oklch(0.5_0.22_265/0.6)] via-transparent to-[oklch(0.72_0.18_165/0.5)]" />
             <div className="absolute inset-0 grid place-items-center">
               <div className="text-center">
-                <div className="font-display text-7xl font-extrabold text-gradient animate-glow">D.E</div>
-                <div className="mt-2 text-xs uppercase tracking-[0.4em] text-muted-foreground">est. visual co.</div>
+                <img src={logo} alt="Dosantoz Enterprises" className="h-28 w-auto md:h-36" />
               </div>
             </div>
           </div>
