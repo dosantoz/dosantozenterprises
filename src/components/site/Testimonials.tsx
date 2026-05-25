@@ -1,7 +1,22 @@
 const items = [
-  { n: "Amani K.", r: "Event Organizer", q: "Our concert posters sold out the night. Dosantoz delivered exactly what we pictured — and better." },
-  { n: "Brian O.", r: "Founder, Lumen Co.", q: "Top-tier identity work. The brand finally feels worthy of the product we built." },
-  { n: "Cynthia W.", r: "Marketing Lead", q: "Social engagement tripled the first month. The creatives are simply on another level." },
+  { 
+    n: "Headboy Adventures", 
+    r: "No. 1 Event/Trip Organizer", 
+    q: "Our Road trip posters sold out the night. Dosantoz Enterprises delivered exactly what we pictured — and better.",
+    initials: "HA"
+  },
+  { 
+    n: "Brian O.", 
+    r: "Founder, Lumen Co.", 
+    q: "Top-tier identity work. The brand finally feels worthy of the product we built.",
+    initials: "B"
+  },
+  { 
+    n: "Mc. Prince Chak", 
+    r: "M.c & Hype Master", 
+    q: "Social engagement and bookings tripled the first month. Their creative touch is  simply on another level.",
+    initials: "PC"
+  },
 ];
 
 export function Testimonials() {
@@ -22,7 +37,7 @@ export function Testimonials() {
               <blockquote className="mt-4 text-foreground/90">“{it.q}”</blockquote>
               <figcaption className="mt-6 flex items-center gap-3">
                 <span className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-primary to-accent font-display font-bold text-primary-foreground">
-                  {it.n[0]}
+                  {it.initials}
                 </span>
                 <span>
                   <div className="font-semibold">{it.n}</div>

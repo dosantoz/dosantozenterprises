@@ -18,7 +18,7 @@ export function Hero() {
         <div className="mx-auto max-w-4xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-muted-foreground animate-fade-in">
             <span className="h-1.5 w-1.5 rounded-full bg-accent animate-glow" />
-            World-class creative studio
+            CREATIVE. LOUD. UNFORGETTABLE
           </span>
 
           <h1 className="mt-7 font-display text-5xl font-extrabold leading-[1.05] tracking-tight md:text-7xl lg:text-8xl animate-fade-in">

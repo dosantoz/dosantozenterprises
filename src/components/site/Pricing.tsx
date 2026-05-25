@@ -1,7 +1,7 @@
 const tiers = [
   {
     name: "Starter",
-    price: "KSh 2,500",
+    price: "KSh 1,000",
     blurb: "Quick single-piece designs.",
     features: ["1 Poster / Flyer", "2 Revisions", "24h Delivery", "HD JPG + PNG"],
     cta: "Get Started",
@@ -9,7 +9,7 @@ const tiers = [
   },
   {
     name: "Brand",
-    price: "KSh 12,000",
+    price: "KSh 10,000",
     blurb: "For startups and growing brands.",
     features: ["Logo + Identity Kit", "5 Social Templates", "Brand Guidelines", "Unlimited Revisions"],
     cta: "Most Popular",
