@@ -6,12 +6,12 @@ import w5 from "@/assets/work-5.jpg";
 import w6 from "@/assets/work-6.jpg";
 
 const works = [
-  { img: w1, title: "Afrobeat Night", tag: "Event Flyer" },
-  { img: w2, title: "Neon Skyline", tag: "Cyberpunk Concept" },
-  { img: w3, title: "Kakrpar Identity", tag: "Branding" },
-  { img: w4, title: "Watoi Waskie Fiti", tag: "Charity Flyer" },
-  { img: w5, title: "Mobile Campaign", tag: "Social Media" },
-  { img: w6, title: "Gold 3D Type", tag: "3D Text Design" },
+  { img: w1, title: "Happy Birthday Tash", tag: "Posters" },
+  { img: w2, title: "Twende Nyeri County", tag: "Posters" },
+  { img: w3, title: "Watoi Waskie Fiti", tag: "Posters" },
+  { img: w4, title: "Freaky Friday — Bar 8", tag: "Posters" },
+  { img: w5, title: "Gen Z Connect", tag: "Posters" },
+  { img: w6, title: "Dubai Ndogo Xperience", tag: "Posters" },
 ];
 
 export function Portfolio() {
