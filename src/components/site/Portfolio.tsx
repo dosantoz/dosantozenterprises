@@ -7,6 +7,11 @@ import w4 from "@/assets/work-4.jpg";
 import w5 from "@/assets/work-5.jpg";
 import w6 from "@/assets/work-6.jpg";
 import w7 from "@/assets/work-7.jpg";
+import b1 from "@/assets/banner-1.jpg";
+import b2 from "@/assets/banner-2.jpg";
+import b3 from "@/assets/banner-3.jpg";
+import b4 from "@/assets/banner-4.jpg";
+import b5 from "@/assets/banner-5.jpg";
 
 const works = [
   { img: w1, title: "ROAD TRIPS", tag: "ONLINE POSTERS" },
@@ -16,6 +21,11 @@ const works = [
   { img: w5, title: "ROAD TRIPS", tag: "ONLINE POSTERS" },
   { img: w6, title: "TRIP POSTERS", tag: "ONLINE POSTERS" },
   { img: w7, title: "BIRTHDAY POSTER", tag: "ONLINE POSTERS" },
+  { img: b1, title: "SJ GRILL BANNER", tag: "ROLL UP BANNERS" },
+  { img: b2, title: "INFINITY STITCHES BANNER", tag: "ROLL UP BANNERS" },
+  { img: b3, title: "AVILA NATURALLE BANNER", tag: "ROLL UP BANNERS" },
+  { img: b4, title: "CELEBRATION OF LIFE BANNER", tag: "ROLL UP BANNERS" },
+  { img: b5, title: "A PRICELESS MOTHER BANNER", tag: "ROLL UP BANNERS" },
 ];
 
 export function Portfolio() {
