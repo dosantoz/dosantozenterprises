@@ -4,6 +4,7 @@ import w3 from "@/assets/work-3.jpg";
 import w4 from "@/assets/work-4.jpg";
 import w5 from "@/assets/work-5.jpg";
 import w6 from "@/assets/work-6.jpg";
+import w7 from "@/assets/work-7.jpg";
 
 const works = [
   { img: w1, title: "ROAD TRIPS", tag: "ONLINE POSTERS" },
@@ -12,6 +13,7 @@ const works = [
   { img: w4, title: "CLUB POSTERS", tag: "ONLINE POSTERS" },
   { img: w5, title: "ROAD TRIPS", tag: "ONLINE POSTERS" },
   { img: w6, title: "TRIP POSTERS", tag: "ONLINE POSTERS" },
+  { img: w7, title: "BIRTHDAY POSTER", tag: "ONLINE POSTERS" },
 ];
 
 export function Portfolio() {
