@@ -54,7 +54,7 @@ export function Pricing() {
               <p className="mt-2 text-sm text-muted-foreground">{t.blurb}</p>
               <ul className="mt-6 space-y-3 text-sm">
                 {t.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2">
+                  <li key={f} className="flex items-start gap-2 whitespace-pre-line">
                     <span className="mt-1 text-accent">✓</span> {f}
                   </li>
                 ))}
