@@ -1,14 +1,14 @@
 const tiers = [
   {
-    name: "Starter",
+    name: "CORPORATE DESIGNS",
     price: "KSh 1,000",
     blurb: "Quick single-piece designs.",
-    features: ["1 Poster / Flyer", "2 Revisions", "24h Delivery", "HD JPG + PNG"],
+    features: ["1\u00A0 Poster / Flyer", "2 Revisions", "24h Delivery", "HD JPG"],
     cta: "Get Started",
     highlight: false,
   },
   {
-    name: "Brand",
+    name: "KSh 5000",
     price: "KSh 10,000",
     blurb: "For startups and growing brands.",
     features: ["Logo + Identity Kit", "5 Social Templates", "Brand Guidelines", "Unlimited Revisions"],
