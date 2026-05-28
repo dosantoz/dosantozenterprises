@@ -32,7 +32,7 @@ export function About() {
 
         <div className="relative">
           <div className="flex flex-col items-center gap-6 md:flex-row md:items-center md:gap-8">
-            {/* Hexagon portrait with glowing white stroke */}
+            {/* Circle portrait with glowing white stroke */}
             <div className="relative shrink-0">
               <div className="relative h-56 w-56 md:h-64 md:w-64">
                 <svg
@@ -44,8 +44,8 @@ export function About() {
                   }}
                 >
                   <defs>
-                    <clipPath id="hex-clip">
-                      <path d="M 116.1,18.05 L 173.9,46.95 A 18 18 0 0 1 190,73 L 190,127 A 18 18 0 0 1 173.9,153.05 L 116.1,181.95 A 18 18 0 0 1 83.9,181.95 L 26.1,153.05 A 18 18 0 0 1 10,127 L 10,73 A 18 18 0 0 1 26.1,46.95 L 83.9,18.05 A 18 18 0 0 1 116.1,18.05 Z" />
+                    <clipPath id="circle-clip">
+                      <circle cx="100" cy="100" r="95" />
                     </clipPath>
                     <linearGradient id="streak-grad" x1="0" y1="0" x2="1" y2="0">
                       <stop offset="0%" stopColor="white" stopOpacity="0" />
@@ -54,8 +54,8 @@ export function About() {
                     </linearGradient>
                   </defs>
 
-                  {/* Inner background + portrait clipped to rounded hexagon */}
-                  <g clipPath="url(#hex-clip)">
+                  {/* Inner background + portrait clipped to circle */}
+                  <g clipPath="url(#circle-clip)">
                     <rect width="200" height="200" fill="oklch(0.17 0.03 265)" />
                     <image
                       href={nicholas}
@@ -68,17 +68,21 @@ export function About() {
                   </g>
 
                   {/* Base white stroke */}
-                  <path
-                    d="M 116.1,18.05 L 173.9,46.95 A 18 18 0 0 1 190,73 L 190,127 A 18 18 0 0 1 173.9,153.05 L 116.1,181.95 A 18 18 0 0 1 83.9,181.95 L 26.1,153.05 A 18 18 0 0 1 10,127 L 10,73 A 18 18 0 0 1 26.1,46.95 L 83.9,18.05 A 18 18 0 0 1 116.1,18.05 Z"
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="95"
                     fill="none"
                     stroke="white"
                     strokeOpacity="0.55"
                     strokeWidth="2.5"
                   />
 
-                  {/* Light streak orbiting the stroke */}
-                  <path
-                    d="M 116.1,18.05 L 173.9,46.95 A 18 18 0 0 1 190,73 L 190,127 A 18 18 0 0 1 173.9,153.05 L 116.1,181.95 A 18 18 0 0 1 83.9,181.95 L 26.1,153.05 A 18 18 0 0 1 10,127 L 10,73 A 18 18 0 0 1 26.1,46.95 L 83.9,18.05 A 18 18 0 0 1 116.1,18.05 Z"
+                  {/* Light streak orbiting the circle */}
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="95"
                     fill="none"
                     stroke="url(#streak-grad)"
                     strokeWidth="4"
@@ -95,7 +99,7 @@ export function About() {
                       dur="3.5s"
                       repeatCount="indefinite"
                     />
-                  </path>
+                  </circle>
                 </svg>
               </div>
             </div>
