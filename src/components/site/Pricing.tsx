@@ -1,14 +1,14 @@
 const tiers = [
   {
-    name: "Starter",
+    name: "CORPORATE DESIGNS",
     price: "KSh 1,000",
     blurb: "Quick single-piece designs.",
-    features: ["1 Poster / Flyer", "2 Revisions", "24h Delivery", "HD JPG + PNG"],
+    features: ["1\nPoster / Flyer", "2 Revisions", "24h Delivery", "HD JPG"],
     cta: "Get Started",
     highlight: false,
   },
   {
-    name: "Brand",
+    name: "KSh 5000",
     price: "KSh 10,000",
     blurb: "For startups and growing brands.",
     features: ["Logo + Identity Kit", "5 Social Templates", "Brand Guidelines", "Unlimited Revisions"],
@@ -54,7 +54,7 @@ export function Pricing() {
               <p className="mt-2 text-sm text-muted-foreground">{t.blurb}</p>
               <ul className="mt-6 space-y-3 text-sm">
                 {t.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2">
+                  <li key={f} className="flex items-start gap-2 whitespace-pre-line">
                     <span className="mt-1 text-accent">✓</span> {f}
                   </li>
                 ))}
