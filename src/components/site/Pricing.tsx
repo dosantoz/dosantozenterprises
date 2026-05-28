@@ -3,7 +3,7 @@ const tiers = [
     name: "CORPORATE DESIGNS",
     price: "KSh 1,000",
     blurb: "Quick single-piece designs.",
-    features: ["1\u00A0 Poster / Flyer", "2 Revisions", "24h Delivery", "HD JPG"],
+    features: ["1\nPoster / Flyer", "2 Revisions", "24h Delivery", "HD JPG"],
     cta: "Get Started",
     highlight: false,
   },
