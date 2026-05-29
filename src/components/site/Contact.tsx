@@ -1,3 +1,5 @@
+import { SiWhatsapp, SiGmail, SiInstagram, SiTiktok } from "react-icons/si";
+
 export function Contact() {
   return (
     <section id="contact" className="relative py-24 md:py-32">
