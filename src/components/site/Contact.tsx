@@ -44,23 +44,28 @@ export function Contact() {
                 </a>
               </div>
 
-              <div className="mt-8 flex gap-3">
-                <a
-                  href="https://instagram.com/dosantoz_enterprises"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full glass px-4 py-2 text-sm hover:ring-neon"
-                >
-                  Instagram @dosantoz_enterprises
-                </a>
-                <a
-                  href="https://tiktok.com/@dosantozenterprises"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full glass px-4 py-2 text-sm hover:ring-neon"
-                >
-                  TikTok @dosantozenterprises
-                </a>
+              <div className="mt-8">
+                <div className="text-xs uppercase tracking-[0.3em] text-accent">Follow us on our socials</div>
+                <div className="mt-3 flex flex-wrap gap-3">
+                  <a
+                    href="https://instagram.com/dosantoz_enterprises"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-sm hover:ring-neon"
+                  >
+                    <SiInstagram className="h-4 w-4" />
+                    @dosantoz_enterprises
+                  </a>
+                  <a
+                    href="https://tiktok.com/@dosantozenterprises"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-sm hover:ring-neon"
+                  >
+                    <SiTiktok className="h-4 w-4" />
+                    @dosantozenterprises
+                  </a>
+                </div>
               </div>
             </div>
 
