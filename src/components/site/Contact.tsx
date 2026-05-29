@@ -29,7 +29,7 @@ export function Contact() {
                   rel="noreferrer"
                   className="flex items-center gap-3 hover:text-primary"
                 >
-                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-accent/20 text-accent">⌬</span>
+                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-accent/20 text-accent"><SiWhatsapp className="h-5 w-5" /></span>
                   <span>
                     <div className="text-xs uppercase tracking-widest text-muted-foreground">WhatsApp</div>
                     <div className="font-semibold">0706 658 803</div>
