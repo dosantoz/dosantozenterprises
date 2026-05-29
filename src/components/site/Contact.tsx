@@ -1,3 +1,5 @@
+import { SiWhatsapp, SiGmail, SiInstagram, SiTiktok } from "react-icons/si";
+
 export function Contact() {
   return (
     <section id="contact" className="relative py-24 md:py-32">
@@ -27,14 +29,14 @@ export function Contact() {
                   rel="noreferrer"
                   className="flex items-center gap-3 hover:text-primary"
                 >
-                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-accent/20 text-accent">⌬</span>
+                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-accent/20 text-accent"><SiWhatsapp className="h-5 w-5" /></span>
                   <span>
                     <div className="text-xs uppercase tracking-widest text-muted-foreground">WhatsApp</div>
                     <div className="font-semibold">0706 658 803</div>
                   </span>
                 </a>
                 <a href="mailto:dosantozgfx@gmail.com" className="flex items-center gap-3 hover:text-primary">
-                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary/15 text-primary">✉</span>
+                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary/15 text-primary"><SiGmail className="h-5 w-5" /></span>
                   <span>
                     <div className="text-xs uppercase tracking-widest text-muted-foreground">Email</div>
                     <div className="font-semibold">dosantozgfx@gmail.com</div>
@@ -42,23 +44,28 @@ export function Contact() {
                 </a>
               </div>
 
-              <div className="mt-8 flex gap-3">
-                <a
-                  href="https://instagram.com/dosantoz_enterprises"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full glass px-4 py-2 text-sm hover:ring-neon"
-                >
-                  Instagram @dosantoz_enterprises
-                </a>
-                <a
-                  href="https://tiktok.com/@dosantozenterprises"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full glass px-4 py-2 text-sm hover:ring-neon"
-                >
-                  TikTok @dosantozenterprises
-                </a>
+              <div className="mt-8">
+                <div className="text-xs uppercase tracking-[0.3em] text-accent">Follow us on our socials</div>
+                <div className="mt-3 flex flex-wrap gap-3">
+                  <a
+                    href="https://instagram.com/dosantoz_enterprises"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-sm hover:ring-neon"
+                  >
+                    <SiInstagram className="h-4 w-4" />
+                    @dosantoz_enterprises
+                  </a>
+                  <a
+                    href="https://tiktok.com/@dosantozenterprises"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-sm hover:ring-neon"
+                  >
+                    <SiTiktok className="h-4 w-4" />
+                    @dosantozenterprises
+                  </a>
+                </div>
               </div>
             </div>
 
