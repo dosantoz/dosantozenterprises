@@ -36,7 +36,7 @@ export function Contact() {
                   </span>
                 </a>
                 <a href="mailto:dosantozgfx@gmail.com" className="flex items-center gap-3 hover:text-primary">
-                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary/15 text-primary">✉</span>
+                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary/15 text-primary"><SiGmail className="h-5 w-5" /></span>
                   <span>
                     <div className="text-xs uppercase tracking-widest text-muted-foreground">Email</div>
                     <div className="font-semibold">dosantozgfx@gmail.com</div>
