@@ -54,27 +54,21 @@ export function About() {
                   />
 
                   {/* Light streak orbiting the circle */}
-                  <circle
-                    cx="100"
-                    cy="100"
-                    r="95"
-                    fill="none"
-                    stroke="url(#streak-grad)"
-                    strokeWidth="4"
-                    strokeLinecap="round"
-                    strokeDasharray="80 560"
-                    style={{
-                      filter: "drop-shadow(0 0 6px white) drop-shadow(0 0 12px white)",
-                    }}
-                  >
-                    <animate
-                      attributeName="stroke-dashoffset"
-                      from="640"
-                      to="0"
-                      dur="3.5s"
-                      repeatCount="indefinite"
+                  <g style={{ transformOrigin: "100px 100px", animation: "spin-orbit 3.5s linear infinite" }}>
+                    <circle
+                      cx="100"
+                      cy="100"
+                      r="95"
+                      fill="none"
+                      stroke="url(#streak-grad)"
+                      strokeWidth="4"
+                      strokeLinecap="round"
+                      strokeDasharray="80 560"
+                      style={{
+                        filter: "drop-shadow(0 0 6px white) drop-shadow(0 0 12px white)",
+                      }}
                     />
-                  </circle>
+                  </g>
                 </svg>
               </div>
             </div>
