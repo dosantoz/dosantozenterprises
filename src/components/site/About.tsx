@@ -105,7 +105,7 @@ export function About() {
             {[
               "Strategy-led concepts before every pixel",
               "Premium delivery in 24–72 hours",
-              "Unlimited revisions on every project",
+              "Unlimited revisions on premium projects",
               "Hand-crafted by senior designers",
             ].map((t) => (
               <li key={t} className="flex items-start gap-3">
