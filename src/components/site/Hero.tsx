@@ -22,7 +22,7 @@ export function Hero() {
           </span>
 
           <h1 className="mt-7 font-display font-extrabold leading-[1.05] tracking-tight md:text-7xl lg:text-8xl animate-fade-in text-sm">
-            Dosantoz Enterp
+            ​
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground md:text-lg animate-fade-in">
