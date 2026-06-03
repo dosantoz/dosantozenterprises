@@ -66,7 +66,12 @@ const categories: Category[] = [
   {
     name: "Business Flyers",
     description: "Professional flyers for businesses and promotions.",
-    works: [],
+    works: [
+      { img: biz1.url, title: "Aura Super Scents" },
+      { img: biz2.url, title: "Possible Gadget" },
+      { img: biz3.url, title: "Triple A Phones & Gadgets Hub" },
+      { img: biz4.url, title: "Just Relax" },
+    ],
   },
   {
     name: "Rollup Stand Printing",
