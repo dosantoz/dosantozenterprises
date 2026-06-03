@@ -20,6 +20,10 @@ import b2 from "@/assets/banner-2.jpg";
 import b3 from "@/assets/banner-3.jpg";
 import b4 from "@/assets/banner-4.jpg";
 import b5 from "@/assets/banner-5.jpg";
+import biz1 from "@/assets/biz-1.jpg.asset.json";
+import biz2 from "@/assets/biz-2.jpg.asset.json";
+import biz3 from "@/assets/biz-3.jpg.asset.json";
+import biz4 from "@/assets/biz-4.jpg.asset.json";
 
 type Work = { img: string; title: string };
 type Category = { name: string; description: string; works: Work[] };
