@@ -11,7 +11,7 @@ const tiers = [
     name: "QUALITY DESIGNS",
     price: "KSh 1,000",
     blurb: "Premium single-piece designs.",
-    features: ["1 Poster / Flyer", "3 Revisions", "72h Delivery", "HD JPG"],
+    features: ["1 Poster / Flyer", "3 Revisions", "24h Delivery", "HD JPG"],
     cta: "Get Started",
     highlight: false,
   },
