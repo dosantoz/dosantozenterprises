@@ -29,7 +29,6 @@ const categories: Category[] = [
     name: "Road Trip Posters",
     description: "Posters designed for road trips and travel events.",
     works: [
-      { img: w1, title: "Road Trips" },
       { img: w2, title: "Road Trip Posters" },
       { img: w5, title: "Road Trips" },
       { img: w6, title: "Trip Posters" },
