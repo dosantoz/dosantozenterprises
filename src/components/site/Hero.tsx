@@ -21,9 +21,12 @@ export function Hero() {
             CREATIVE. LOUD. UNFORGETTABLE
           </span>
 
-          <h1 className="mt-7 font-display font-extrabold leading-[1.05] tracking-tight md:text-7xl lg:text-8xl animate-fade-in text-sm">
-            ​
+          <h1 className="mt-7 font-display font-extrabold leading-[1.05] tracking-tight text-4xl md:text-6xl lg:text-7xl animate-fade-in">
+            DOSANTOZ <span className="text-gradient">ENTERPRISES</span>
           </h1>
+          <p className="mt-4 font-normal text-lg md:text-xl text-muted-foreground animate-fade-in">
+            Creative Graphic Design Solutions
+          </p>
 
           <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground md:text-lg animate-fade-in">
             Posters • Branding • Motion Graphics • Social Media Designs • Event Flyers • 3D Text Designs
