@@ -104,7 +104,7 @@ export function About() {
           <ul className="mt-7 grid gap-3 text-sm">
             {[
               "Strategy-led concepts before every pixel",
-              "Premium delivery in 24–72 hours",
+              "Premium projects delivery in 24 hours",
               "Unlimited revisions on premium projects",
               "Hand-crafted by senior designers",
             ].map((t) => (
