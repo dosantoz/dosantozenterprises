@@ -62,7 +62,14 @@ const categories: Category[] = [
   {
     name: "Club Posters",
     description: "Posters tailored for clubs and nightlife events.",
-    works: [{ img: w4, title: "Club Posters" }],
+    works: [
+      { img: w4, title: "Club Posters" },
+      { img: club1.url, title: "We Otside - April Lineup" },
+      { img: club2.url, title: "Space Out Friday" },
+      { img: club3.url, title: "Lisney Experience" },
+      { img: club4.url, title: "Allout Saturday" },
+      { img: club5.url, title: "Amapiano Hangout" },
+    ],
   },
   {
     name: "Birthday Posters",
