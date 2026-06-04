@@ -31,6 +31,10 @@ import hol1 from "@/assets/hol-1.jpg.asset.json";
 import hol2 from "@/assets/hol-2.jpg.asset.json";
 import hol3 from "@/assets/hol-3.jpg.asset.json";
 import hol4 from "@/assets/hol-4.jpg.asset.json";
+import brand1 from "@/assets/brand-1.jpg.asset.json";
+import brand2 from "@/assets/brand-2.jpg.asset.json";
+import brand3 from "@/assets/brand-3.jpg.asset.json";
+import brand4 from "@/assets/brand-4.jpg.asset.json";
 
 type Work = { img: string; title: string };
 type Category = { name: string; description: string; works: Work[] };
