@@ -27,6 +27,10 @@ import biz4 from "@/assets/biz-4.jpg.asset.json";
 import church1 from "@/assets/church-1.jpg.asset.json";
 import church2 from "@/assets/church-2.jpg.asset.json";
 import church3 from "@/assets/church-3.jpg.asset.json";
+import hol1 from "@/assets/hol-1.jpg.asset.json";
+import hol2 from "@/assets/hol-2.jpg.asset.json";
+import hol3 from "@/assets/hol-3.jpg.asset.json";
+import hol4 from "@/assets/hol-4.jpg.asset.json";
 
 type Work = { img: string; title: string };
 type Category = { name: string; description: string; works: Work[] };
@@ -66,9 +70,14 @@ const categories: Category[] = [
     ],
   },
   {
-    name: "Public Holiday Flyers",
+    name: "Special Day Flyers",
     description: "Flyers for public holidays and national celebrations.",
-    works: [],
+    works: [
+      { img: hol1.url, title: "Happy Mashujaa Day" },
+      { img: hol2.url, title: "Happy Mother's Day" },
+      { img: hol3.url, title: "Happy Independence Day" },
+      { img: hol4.url, title: "Happy Good Friday" },
+    ],
   },
   {
     name: "Business Flyers",
