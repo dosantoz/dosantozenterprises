@@ -104,6 +104,16 @@ const categories: Category[] = [
       { img: b5, title: "A Priceless Mother Banner" },
     ],
   },
+  {
+    name: "Brand Identity Kit",
+    description: "Complete brand identity systems and mockup presentations.",
+    works: [
+      { img: brand1.url, title: "Socotra Brand Identity" },
+      { img: brand2.url, title: "Genial Brand Identity" },
+      { img: brand3.url, title: "Germaine Brand Identity" },
+      { img: brand4.url, title: "FreshTrolley Brand Identity" },
+    ],
+  },
 ];
 
 export function Portfolio() {
