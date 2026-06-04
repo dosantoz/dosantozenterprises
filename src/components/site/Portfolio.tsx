@@ -35,6 +35,9 @@ import brand1 from "@/assets/brand-1.jpg.asset.json";
 import brand2 from "@/assets/brand-2.jpg.asset.json";
 import brand3 from "@/assets/brand-3.jpg.asset.json";
 import brand4 from "@/assets/brand-4.jpg.asset.json";
+import bday1 from "@/assets/bday-1.jpg.asset.json";
+import bday2 from "@/assets/bday-2.jpg.asset.json";
+import bday3 from "@/assets/bday-3.jpg.asset.json";
 import club1 from "@/assets/club-1.jpg.asset.json";
 import club2 from "@/assets/club-2.png.asset.json";
 import club3 from "@/assets/club-3.jpg.asset.json";
@@ -74,7 +77,12 @@ const categories: Category[] = [
   {
     name: "Birthday Posters",
     description: "Celebration posters for birthdays and milestones.",
-    works: [{ img: w7, title: "Birthday Poster" }],
+    works: [
+      { img: w7, title: "Birthday Poster" },
+      { img: bday1.url, title: "Happy Birthday Nais" },
+      { img: bday2.url, title: "Mirabel's Birthday" },
+      { img: bday3.url, title: "Prudent Gabriel" },
+    ],
   },
   {
     name: "Church Posters",
