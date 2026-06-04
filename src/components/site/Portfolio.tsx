@@ -70,9 +70,14 @@ const categories: Category[] = [
     ],
   },
   {
-    name: "Public Holiday Flyers",
+    name: "Special Day Flyers",
     description: "Flyers for public holidays and national celebrations.",
-    works: [],
+    works: [
+      { img: hol1.url, title: "Happy Mashujaa Day" },
+      { img: hol2.url, title: "Happy Mother's Day" },
+      { img: hol3.url, title: "Happy Independence Day" },
+      { img: hol4.url, title: "Happy Good Friday" },
+    ],
   },
   {
     name: "Business Flyers",
