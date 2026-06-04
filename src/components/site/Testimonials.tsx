@@ -1,13 +1,13 @@
 const items = [
   { 
     n: "Headboy Adventures", 
-    r: "No. 1 Event/Trip Organizer", 
+    r: "Event/Trip Organizer", 
     q: "Our Road trip posters sold out the night. Dosantoz Enterprises delivered exactly what we pictured — and better.",
     initials: "HA"
   },
   { 
     n: "Brian O.", 
-    r: "Founder, Lumen Co.", 
+    r: "Founder, Germaine Co.", 
     q: "Top-tier identity work. The brand finally feels worthy of the product we built.",
     initials: "B"
   },
