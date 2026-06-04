@@ -24,6 +24,9 @@ import biz1 from "@/assets/biz-1.jpg.asset.json";
 import biz2 from "@/assets/biz-2.jpg.asset.json";
 import biz3 from "@/assets/biz-3.jpg.asset.json";
 import biz4 from "@/assets/biz-4.jpg.asset.json";
+import church1 from "@/assets/church-1.jpg.asset.json";
+import church2 from "@/assets/church-2.jpg.asset.json";
+import church3 from "@/assets/church-3.jpg.asset.json";
 
 type Work = { img: string; title: string };
 type Category = { name: string; description: string; works: Work[] };
