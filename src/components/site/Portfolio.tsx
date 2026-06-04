@@ -59,7 +59,11 @@ const categories: Category[] = [
   {
     name: "Church Posters",
     description: "Posters and flyers crafted for church events.",
-    works: [],
+    works: [
+      { img: church1.url, title: "The Mantle" },
+      { img: church2.url, title: "Spread It Before The Lord" },
+      { img: church3.url, title: "Communion Service" },
+    ],
   },
   {
     name: "Public Holiday Flyers",
