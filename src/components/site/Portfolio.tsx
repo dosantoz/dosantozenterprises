@@ -35,6 +35,11 @@ import brand1 from "@/assets/brand-1.jpg.asset.json";
 import brand2 from "@/assets/brand-2.jpg.asset.json";
 import brand3 from "@/assets/brand-3.jpg.asset.json";
 import brand4 from "@/assets/brand-4.jpg.asset.json";
+import club1 from "@/assets/club-1.jpg.asset.json";
+import club2 from "@/assets/club-2.png.asset.json";
+import club3 from "@/assets/club-3.jpg.asset.json";
+import club4 from "@/assets/club-4.jpg.asset.json";
+import club5 from "@/assets/club-5.jpg.asset.json";
 
 type Work = { img: string; title: string };
 type Category = { name: string; description: string; works: Work[] };
