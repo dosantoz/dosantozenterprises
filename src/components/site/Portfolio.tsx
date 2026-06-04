@@ -77,7 +77,12 @@ const categories: Category[] = [
   {
     name: "Birthday Posters",
     description: "Celebration posters for birthdays and milestones.",
-    works: [{ img: w7, title: "Birthday Poster" }],
+    works: [
+      { img: w7, title: "Birthday Poster" },
+      { img: bday1.url, title: "Happy Birthday Nais" },
+      { img: bday2.url, title: "Mirabel's Birthday" },
+      { img: bday3.url, title: "Prudent Gabriel" },
+    ],
   },
   {
     name: "Church Posters",
