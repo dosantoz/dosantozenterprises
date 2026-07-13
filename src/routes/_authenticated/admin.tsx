@@ -1,54 +1,13 @@
 import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useQuery } from "@tanstack/react-query";
-import { createServerFn } from "@tanstack/react-start";
-import { z } from "zod";
-import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { SiteLayout } from "@/components/site/SiteLayout";
+import { listAllOrders, updateOrderStatus } from "@/lib/admin.functions";
 import { toast } from "sonner";
-
-const listAllOrders = createServerFn({ method: "GET" })
-  .middleware([requireSupabaseAuth])
-  .handler(async ({ context }) => {
-    const { data: isAdminRow } = await context.supabase
-      .from("user_roles")
-      .select("role")
-      .eq("user_id", context.userId)
-      .eq("role", "admin")
-      .maybeSingle();
-    if (!isAdminRow) throw new Error("Forbidden");
-
-    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const { data, error } = await supabaseAdmin
-      .from("orders")
-      .select("id, user_id, project_type, tier_name, status, amount_kes, created_at")
-      .order("created_at", { ascending: false })
-      .limit(200);
-    if (error) throw new Error(error.message);
-    return data ?? [];
-  });
-
-const updateOrderStatus = createServerFn({ method: "POST" })
-  .middleware([requireSupabaseAuth])
-  .inputValidator((data: unknown) =>
-    z.object({
-      id: z.string().uuid(),
-      status: z.enum(["pending_payment", "paid", "in_progress", "revision", "delivered", "cancelled"]),
-    }).parse(data),
-  )
-  .handler(async ({ data, context }) => {
-    const { error } = await context.supabase
-      .from("orders")
-      .update({ status: data.status })
-      .eq("id", data.id);
-    if (error) throw new Error(error.message);
-    return { ok: true };
-  });
 
 export const Route = createFileRoute("/_authenticated/admin")({
   ssr: false,
-  beforeLoad: async ({ context }) => {
-    // Ensure signed in (parent gate) and admin
+  beforeLoad: async () => {
     const { supabase } = await import("@/integrations/supabase/client");
     const { data: userRow } = await supabase.auth.getUser();
     if (!userRow.user) throw redirect({ to: "/auth" });
@@ -59,7 +18,6 @@ export const Route = createFileRoute("/_authenticated/admin")({
       .eq("role", "admin")
       .maybeSingle();
     if (!role) throw redirect({ to: "/dashboard" });
-    return context;
   },
   head: () => ({
     meta: [{ title: "Admin — Dosantoz Enterprises" }, { name: "robots", content: "noindex" }],
@@ -128,7 +86,12 @@ function AdminPage() {
                           defaultValue={o.status}
                           onChange={async (e) => {
                             try {
-                              await updateFn({ data: { id: o.id, status: e.target.value as (typeof statusOptions)[number] } });
+                              await updateFn({
+                                data: {
+                                  id: o.id,
+                                  status: e.target.value as (typeof statusOptions)[number],
+                                },
+                              });
                               toast.success("Updated");
                               q.refetch();
                             } catch (err) {
@@ -143,11 +106,7 @@ function AdminPage() {
                         </select>
                       </td>
                       <td className="py-3 pr-3">
-                        <Link
-                          to="/orders/$id"
-                          params={{ id: o.id }}
-                          className="text-primary hover:underline"
-                        >
+                        <Link to="/orders/$id" params={{ id: o.id }} className="text-primary hover:underline">
                           Open
                         </Link>
                       </td>
