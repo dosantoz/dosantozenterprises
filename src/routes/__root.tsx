@@ -7,8 +7,10 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { Toaster } from "sonner";
 
 import appCss from "../styles.css?url";
+
 
 function NotFoundComponent() {
   return (
@@ -72,18 +74,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Dosantoinz: Design Genesis is a modern graphic design portfolio website for DOSANTOZ ENTERPRISES." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Dosantoinz: Design Genesis is a modern graphic design portfolio website for DOSANTOZ ENTERPRISES." },
+      { title: "Dosantoz Enterprises — Creative Graphic Design in Nairobi" },
+      { name: "description", content: "Bold posters, branding, motion graphics and event flyers. Book online, track your project, get delivered files fast." },
+      { name: "author", content: "Dosantoz Enterprises" },
+      { property: "og:title", content: "Dosantoz Enterprises — Creative Graphic Design" },
+      { property: "og:description", content: "Posters • Branding • Motion Graphics • Event Flyers • 3D Type." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Dosantoinz: Design Genesis is a modern graphic design portfolio website for DOSANTOZ ENTERPRISES." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/040c580c-da58-465a-af23-3415dad16f28/id-preview-1652d1a7--63f3fec0-dc64-45b6-9219-02f83b78dc2e.lovable.app-1779296614015.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/040c580c-da58-465a-af23-3415dad16f28/id-preview-1652d1a7--63f3fec0-dc64-45b6-9219-02f83b78dc2e.lovable.app-1779296614015.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Dosantoz Enterprises" },
+      { name: "twitter:description", content: "Creative Graphic Design in Nairobi. Book online." },
+
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -121,6 +121,8 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
+      <Toaster richColors position="top-right" />
     </QueryClientProvider>
   );
 }
+
