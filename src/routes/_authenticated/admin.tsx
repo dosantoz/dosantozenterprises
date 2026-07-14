@@ -33,14 +33,12 @@ function AdminPage() {
     <SiteLayout>
       <section className="pt-32 pb-24">
         <div className="mx-auto max-w-6xl px-5">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
               <span className="text-xs uppercase tracking-[0.3em] text-accent">Admin</span>
               <h1 className="mt-2 font-display text-4xl font-bold">All orders</h1>
             </div>
-            <Link to="/dashboard" className="rounded-full glass px-4 py-2 text-sm">
-              My account
-            </Link>
+            <AdminNav current="orders" />
           </div>
 
           <div className="mt-8 rounded-3xl glass p-6 shadow-glow overflow-x-auto">
