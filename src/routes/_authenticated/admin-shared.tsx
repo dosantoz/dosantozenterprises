@@ -1,4 +1,4 @@
-import { redirect } from "@tanstack/react-router";
+import { redirect, Link } from "@tanstack/react-router";
 
 export async function requireAdminRoute() {
   const { supabase } = await import("@/integrations/supabase/client");
@@ -13,14 +13,15 @@ export async function requireAdminRoute() {
   if (!role) throw redirect({ to: "/dashboard" });
 }
 
-export function AdminNav({ current }: { current: "orders" | "portfolio" | "pricing" | "testimonials" }) {
-  const items = [
-    { key: "orders", label: "Orders", to: "/admin" as const },
-    { key: "portfolio", label: "Portfolio", to: "/admin/portfolio" as const },
-    { key: "pricing", label: "Pricing", to: "/admin/pricing" as const },
-    { key: "testimonials", label: "Testimonials", to: "/admin/testimonials" as const },
+type Tab = "orders" | "portfolio" | "pricing" | "testimonials";
+
+export function AdminNav({ current }: { current: Tab }) {
+  const items: { key: Tab; label: string; to: "/admin" | "/admin/portfolio" | "/admin/pricing" | "/admin/testimonials" }[] = [
+    { key: "orders", label: "Orders", to: "/admin" },
+    { key: "portfolio", label: "Portfolio", to: "/admin/portfolio" },
+    { key: "pricing", label: "Pricing", to: "/admin/pricing" },
+    { key: "testimonials", label: "Testimonials", to: "/admin/testimonials" },
   ];
-  const Link = require("@tanstack/react-router").Link as typeof import("@tanstack/react-router").Link;
   return (
     <nav className="flex flex-wrap gap-2 rounded-full glass p-1.5 text-sm">
       {items.map((i) => (
