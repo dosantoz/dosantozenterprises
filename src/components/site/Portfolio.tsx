@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
+import { useQuery } from "@tanstack/react-query";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import {
   Carousel,
@@ -8,137 +10,18 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Folder } from "lucide-react";
-
-import w2 from "@/assets/work-2.jpg";
-import w3 from "@/assets/work-3.jpg";
-import w4 from "@/assets/work-4.jpg";
-import w5 from "@/assets/work-5.jpg";
-import w6 from "@/assets/work-6.jpg";
-import w7 from "@/assets/work-7.jpg";
-import b1 from "@/assets/banner-1.jpg";
-import b2 from "@/assets/banner-2.jpg";
-import b3 from "@/assets/banner-3.jpg";
-import b4 from "@/assets/banner-4.jpg";
-import b5 from "@/assets/banner-5.jpg";
-import biz1 from "@/assets/biz-1.jpg.asset.json";
-import biz2 from "@/assets/biz-2.jpg.asset.json";
-import biz3 from "@/assets/biz-3.jpg.asset.json";
-import biz4 from "@/assets/biz-4.jpg.asset.json";
-import church1 from "@/assets/church-1.jpg.asset.json";
-import church2 from "@/assets/church-2.jpg.asset.json";
-import church3 from "@/assets/church-3.jpg.asset.json";
-import hol1 from "@/assets/hol-1.jpg.asset.json";
-import hol2 from "@/assets/hol-2.jpg.asset.json";
-import hol3 from "@/assets/hol-3.jpg.asset.json";
-import hol4 from "@/assets/hol-4.jpg.asset.json";
-import brand1 from "@/assets/brand-1.jpg.asset.json";
-import brand2 from "@/assets/brand-2.jpg.asset.json";
-import brand3 from "@/assets/brand-3.jpg.asset.json";
-import brand4 from "@/assets/brand-4.jpg.asset.json";
-import bday1 from "@/assets/bday-1.jpg.asset.json";
-import bday2 from "@/assets/bday-2.jpg.asset.json";
-import bday3 from "@/assets/bday-3.jpg.asset.json";
-import club1 from "@/assets/club-1.jpg.asset.json";
-import club2 from "@/assets/club-2.png.asset.json";
-import club3 from "@/assets/club-3.jpg.asset.json";
-import club4 from "@/assets/club-4.jpg.asset.json";
-import club5 from "@/assets/club-5.jpg.asset.json";
-
-type Work = { img: string; title: string };
-type Category = { name: string; description: string; works: Work[] };
-
-const categories: Category[] = [
-  {
-    name: "Road Trip Posters",
-    description: "Posters designed for road trips and travel events.",
-    works: [
-      { img: w2, title: "Road Trip Posters" },
-      { img: w5, title: "Road Trips" },
-      { img: w6, title: "Trip Posters" },
-    ],
-  },
-  {
-    name: "Charity Posters",
-    description: "Posters for charity drives and fundraising events.",
-    works: [{ img: w3, title: "Charity Posters" }],
-  },
-  {
-    name: "Club Posters",
-    description: "Posters tailored for clubs and nightlife events.",
-    works: [
-      { img: w4, title: "Club Posters" },
-      { img: club1.url, title: "We Otside - April Lineup" },
-      { img: club2.url, title: "Space Out Friday" },
-      { img: club3.url, title: "Lisney Experience" },
-      { img: club4.url, title: "Allout Saturday" },
-      { img: club5.url, title: "Amapiano Hangout" },
-    ],
-  },
-  {
-    name: "Birthday Posters",
-    description: "Celebration posters for birthdays and milestones.",
-    works: [
-      { img: w7, title: "Birthday Poster" },
-      { img: bday1.url, title: "Happy Birthday Nais" },
-      { img: bday2.url, title: "Mirabel's Birthday" },
-      { img: bday3.url, title: "Prudent Gabriel" },
-    ],
-  },
-  {
-    name: "Church Posters",
-    description: "Posters and flyers crafted for church events.",
-    works: [
-      { img: church1.url, title: "The Mantle" },
-      { img: church2.url, title: "Spread It Before The Lord" },
-      { img: church3.url, title: "Communion Service" },
-    ],
-  },
-  {
-    name: "Special Day Flyers",
-    description: "Flyers for public holidays and national celebrations.",
-    works: [
-      { img: hol1.url, title: "Happy Mashujaa Day" },
-      { img: hol2.url, title: "Happy Mother's Day" },
-      { img: hol3.url, title: "Happy Independence Day" },
-      { img: hol4.url, title: "Happy Good Friday" },
-    ],
-  },
-  {
-    name: "Business Flyers",
-    description: "Professional flyers for businesses and promotions.",
-    works: [
-      { img: biz1.url, title: "Aura Super Scents" },
-      { img: biz2.url, title: "Possible Gadget" },
-      { img: biz3.url, title: "Triple A Phones & Gadgets Hub" },
-      { img: biz4.url, title: "Just Relax" },
-    ],
-  },
-  {
-    name: "Rollup Stand Printing",
-    description: "Roll-up banners and stand printing designs.",
-    works: [
-      { img: b1, title: "SJ Grill Banner" },
-      { img: b2, title: "Infinity Stitches Banner" },
-      { img: b3, title: "Avila Naturalle Banner" },
-      { img: b4, title: "Celebration of Life Banner" },
-      { img: b5, title: "A Priceless Mother Banner" },
-    ],
-  },
-  {
-    name: "Brand Identity Kit",
-    description: "Complete brand identity systems and mockup presentations.",
-    works: [
-      { img: brand1.url, title: "Socotra Brand Identity" },
-      { img: brand2.url, title: "Genial Brand Identity" },
-      { img: brand3.url, title: "Germaine Brand Identity" },
-      { img: brand4.url, title: "FreshTrolley Brand Identity" },
-    ],
-  },
-];
+import { listPortfolio } from "@/lib/cms.functions";
 
 export function Portfolio() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const active = activeIndex !== null ? categories[activeIndex] : null;
+  const fetchFn = useServerFn(listPortfolio);
+  const q = useQuery({ queryKey: ["portfolio"], queryFn: () => fetchFn() });
+  const [activeCatId, setActiveCatId] = useState<string | null>(null);
+
+  const categories = q.data?.categories ?? [];
+  const items = q.data?.items ?? [];
+  const itemsByCat = (id: string) => items.filter((i) => i.category_id === id);
+  const active = categories.find((c) => c.id === activeCatId) ?? null;
+  const activeWorks = active ? itemsByCat(active.id) : [];
 
   return (
     <section id="portfolio" className="relative py-24 md:py-32">
@@ -155,20 +38,25 @@ export function Portfolio() {
           </div>
         </div>
 
+        {q.isLoading && (
+          <p className="mt-12 text-sm text-muted-foreground">Loading portfolio…</p>
+        )}
+
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {categories.map((c, i) => {
-            const cover = c.works[0];
+          {categories.map((c) => {
+            const works = itemsByCat(c.id);
+            const cover = works[0];
             return (
               <button
                 type="button"
-                key={c.name}
-                onClick={() => setActiveIndex(i)}
+                key={c.id}
+                onClick={() => setActiveCatId(c.id)}
                 className="group relative aspect-[4/5] overflow-hidden rounded-3xl glass shadow-glow text-left"
               >
                 {cover ? (
                   <img
-                    src={cover.img}
-                    alt={c.name}
+                    src={cover.image_url}
+                    alt={c.title}
                     loading="lazy"
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -182,9 +70,9 @@ export function Portfolio() {
                   <div className="flex items-end justify-between gap-3">
                     <div>
                       <div className="text-xs uppercase tracking-widest text-accent">
-                        {c.works.length} {c.works.length === 1 ? "design" : "designs"}
+                        {works.length} {works.length === 1 ? "design" : "designs"}
                       </div>
-                      <h3 className="mt-1 font-display text-xl font-bold">{c.name}</h3>
+                      <h3 className="mt-1 font-display text-xl font-bold">{c.title}</h3>
                       <p className="mt-1 text-xs text-muted-foreground line-clamp-2">
                         {c.description}
                       </p>
@@ -200,14 +88,12 @@ export function Portfolio() {
         </div>
       </div>
 
-      <Dialog open={active !== null} onOpenChange={(o) => !o && setActiveIndex(null)}>
+      <Dialog open={active !== null} onOpenChange={(o) => !o && setActiveCatId(null)}>
         <DialogContent className="max-w-5xl w-full bg-background/95 border-0 p-4 sm:p-6">
-          <DialogTitle className="text-center font-display text-2xl">
-            {active?.name}
-          </DialogTitle>
+          <DialogTitle className="text-center font-display text-2xl">{active?.title}</DialogTitle>
           {active && (
             <>
-              {active.works.length === 0 ? (
+              {activeWorks.length === 0 ? (
                 <div className="grid place-items-center py-16 text-center">
                   <Folder className="h-16 w-16 text-accent" />
                   <p className="mt-4 text-muted-foreground">
@@ -217,11 +103,11 @@ export function Portfolio() {
               ) : (
                 <Carousel opts={{ loop: true }} className="mx-auto w-full max-w-3xl px-10">
                   <CarouselContent>
-                    {active.works.map((w, i) => (
-                      <CarouselItem key={i}>
+                    {activeWorks.map((w) => (
+                      <CarouselItem key={w.id}>
                         <div className="flex flex-col items-center gap-3">
                           <img
-                            src={w.img}
+                            src={w.image_url}
                             alt={w.title}
                             className="max-h-[75vh] w-auto max-w-full rounded-lg object-contain"
                           />
