@@ -22,6 +22,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as AuthenticatedOrdersIdRouteImport } from './routes/_authenticated/orders/$id'
+import { Route as AuthenticatedAdminPortfolioRouteImport } from './routes/_authenticated/admin/portfolio'
 
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
@@ -87,6 +88,12 @@ const AuthenticatedOrdersIdRoute = AuthenticatedOrdersIdRouteImport.update({
   path: '/orders/$id',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedAdminPortfolioRoute =
+  AuthenticatedAdminPortfolioRouteImport.update({
+    id: '/portfolio',
+    path: '/portfolio',
+    getParentRoute: () => AuthenticatedAdminRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -98,8 +105,9 @@ export interface FileRoutesByFullPath {
   '/pricing': typeof PricingRoute
   '/reset-password': typeof ResetPasswordRoute
   '/services': typeof ServicesRoute
-  '/admin': typeof AuthenticatedAdminRoute
+  '/admin': typeof AuthenticatedAdminRouteWithChildren
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/admin/portfolio': typeof AuthenticatedAdminPortfolioRoute
   '/orders/$id': typeof AuthenticatedOrdersIdRoute
 }
 export interface FileRoutesByTo {
@@ -112,8 +120,9 @@ export interface FileRoutesByTo {
   '/pricing': typeof PricingRoute
   '/reset-password': typeof ResetPasswordRoute
   '/services': typeof ServicesRoute
-  '/admin': typeof AuthenticatedAdminRoute
+  '/admin': typeof AuthenticatedAdminRouteWithChildren
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/admin/portfolio': typeof AuthenticatedAdminPortfolioRoute
   '/orders/$id': typeof AuthenticatedOrdersIdRoute
 }
 export interface FileRoutesById {
@@ -128,8 +137,9 @@ export interface FileRoutesById {
   '/pricing': typeof PricingRoute
   '/reset-password': typeof ResetPasswordRoute
   '/services': typeof ServicesRoute
-  '/_authenticated/admin': typeof AuthenticatedAdminRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/_authenticated/admin/portfolio': typeof AuthenticatedAdminPortfolioRoute
   '/_authenticated/orders/$id': typeof AuthenticatedOrdersIdRoute
 }
 export interface FileRouteTypes {
@@ -146,6 +156,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/admin'
     | '/dashboard'
+    | '/admin/portfolio'
     | '/orders/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -160,6 +171,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/admin'
     | '/dashboard'
+    | '/admin/portfolio'
     | '/orders/$id'
   id:
     | '__root__'
@@ -175,6 +187,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/_authenticated/admin'
     | '/_authenticated/dashboard'
+    | '/_authenticated/admin/portfolio'
     | '/_authenticated/orders/$id'
   fileRoutesById: FileRoutesById
 }
@@ -284,17 +297,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedOrdersIdRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/admin/portfolio': {
+      id: '/_authenticated/admin/portfolio'
+      path: '/portfolio'
+      fullPath: '/admin/portfolio'
+      preLoaderRoute: typeof AuthenticatedAdminPortfolioRouteImport
+      parentRoute: typeof AuthenticatedAdminRoute
+    }
   }
 }
 
+interface AuthenticatedAdminRouteChildren {
+  AuthenticatedAdminPortfolioRoute: typeof AuthenticatedAdminPortfolioRoute
+}
+
+const AuthenticatedAdminRouteChildren: AuthenticatedAdminRouteChildren = {
+  AuthenticatedAdminPortfolioRoute: AuthenticatedAdminPortfolioRoute,
+}
+
+const AuthenticatedAdminRouteWithChildren =
+  AuthenticatedAdminRoute._addFileChildren(AuthenticatedAdminRouteChildren)
+
 interface AuthenticatedRouteRouteChildren {
-  AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRouteWithChildren
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedOrdersIdRoute: typeof AuthenticatedOrdersIdRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
-  AuthenticatedAdminRoute: AuthenticatedAdminRoute,
+  AuthenticatedAdminRoute: AuthenticatedAdminRouteWithChildren,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedOrdersIdRoute: AuthenticatedOrdersIdRoute,
 }
