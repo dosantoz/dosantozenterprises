@@ -1,24 +1,14 @@
-import { createFileRoute, Link, redirect } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useQuery } from "@tanstack/react-query";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { listAllOrders, updateOrderStatus } from "@/lib/admin.functions";
+import { AdminNav, requireAdminRoute } from "@/lib/admin-shared";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/_authenticated/admin")({
   ssr: false,
-  beforeLoad: async () => {
-    const { supabase } = await import("@/integrations/supabase/client");
-    const { data: userRow } = await supabase.auth.getUser();
-    if (!userRow.user) throw redirect({ to: "/auth" });
-    const { data: role } = await supabase
-      .from("user_roles")
-      .select("role")
-      .eq("user_id", userRow.user.id)
-      .eq("role", "admin")
-      .maybeSingle();
-    if (!role) throw redirect({ to: "/dashboard" });
-  },
+  beforeLoad: requireAdminRoute,
   head: () => ({
     meta: [{ title: "Admin — Dosantoz Enterprises" }, { name: "robots", content: "noindex" }],
   }),
