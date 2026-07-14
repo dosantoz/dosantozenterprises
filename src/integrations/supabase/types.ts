@@ -96,6 +96,8 @@ export type Database = {
           payment_ref: string | null
           project_type: string
           status: Database["public"]["Enums"]["order_status"]
+          stripe_payment_intent: string | null
+          stripe_session_id: string | null
           tier_name: string | null
           updated_at: string
           user_id: string
@@ -111,6 +113,8 @@ export type Database = {
           payment_ref?: string | null
           project_type: string
           status?: Database["public"]["Enums"]["order_status"]
+          stripe_payment_intent?: string | null
+          stripe_session_id?: string | null
           tier_name?: string | null
           updated_at?: string
           user_id: string
@@ -126,9 +130,115 @@ export type Database = {
           payment_ref?: string | null
           project_type?: string
           status?: Database["public"]["Enums"]["order_status"]
+          stripe_payment_intent?: string | null
+          stripe_session_id?: string | null
           tier_name?: string | null
           updated_at?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      portfolio_categories: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          slug: string
+          sort_order: number
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          slug: string
+          sort_order?: number
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          slug?: string
+          sort_order?: number
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      portfolio_items: {
+        Row: {
+          category_id: string
+          created_at: string
+          id: string
+          image_url: string
+          sort_order: number
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category_id: string
+          created_at?: string
+          id?: string
+          image_url: string
+          sort_order?: number
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category_id?: string
+          created_at?: string
+          id?: string
+          image_url?: string
+          sort_order?: number
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "portfolio_items_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "portfolio_categories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      pricing_tiers: {
+        Row: {
+          created_at: string
+          features: Json
+          highlight: boolean
+          id: string
+          is_active: boolean
+          name: string
+          price_kes: number
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          features?: Json
+          highlight?: boolean
+          id?: string
+          is_active?: boolean
+          name: string
+          price_kes: number
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          features?: Json
+          highlight?: boolean
+          id?: string
+          is_active?: boolean
+          name?: string
+          price_kes?: number
+          sort_order?: number
+          updated_at?: string
         }
         Relationships: []
       }
@@ -155,6 +265,42 @@ export type Database = {
           full_name?: string | null
           id?: string
           phone?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      testimonials: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          id: string
+          is_published: boolean
+          name: string
+          quote: string
+          role: string | null
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          id?: string
+          is_published?: boolean
+          name: string
+          quote: string
+          role?: string | null
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          id?: string
+          is_published?: boolean
+          name?: string
+          quote?: string
+          role?: string | null
+          sort_order?: number
           updated_at?: string
         }
         Relationships: []
