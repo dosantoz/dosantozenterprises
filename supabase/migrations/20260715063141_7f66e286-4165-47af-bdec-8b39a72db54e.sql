@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX IF NOT EXISTS testimonials_user_id_unique ON public.testimonials(user_id) WHERE user_id IS NOT NULL;

@@ -22,6 +22,7 @@ type T = {
   avatar_url: string | null;
   is_published: boolean;
   sort_order: number;
+  rating: number;
 };
 
 function AdminTestimonials() {
@@ -43,6 +44,7 @@ function AdminTestimonials() {
           avatar_url: editing.avatar_url,
           is_published: editing.is_published,
           sort_order: editing.sort_order,
+          rating: editing.rating,
         },
       });
       toast.success("Saved");
@@ -68,13 +70,14 @@ function AdminTestimonials() {
           <div className="mt-6 flex justify-end">
             <button
               onClick={() =>
-                setEditing({
+              setEditing({
                   name: "",
                   role: "",
                   quote: "",
                   avatar_url: "",
                   is_published: true,
                   sort_order: (q.data?.length ?? 0) * 10 + 10,
+                  rating: 5,
                 })
               }
               className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
@@ -134,6 +137,7 @@ function AdminTestimonials() {
               <Field label="Role"><input value={editing.role ?? ""} onChange={(e) => setEditing({ ...editing, role: e.target.value })} className="input" /></Field>
               <Field label="Quote"><textarea rows={4} value={editing.quote} onChange={(e) => setEditing({ ...editing, quote: e.target.value })} className="input" /></Field>
               <Field label="Avatar URL (optional)"><input value={editing.avatar_url ?? ""} onChange={(e) => setEditing({ ...editing, avatar_url: e.target.value })} className="input" /></Field>
+              <Field label="Rating (1–5)"><input type="number" min={1} max={5} value={editing.rating} onChange={(e) => setEditing({ ...editing, rating: Math.max(1, Math.min(5, parseInt(e.target.value || "5", 10))) })} className="input" /></Field>
               <Field label="Sort order"><input type="number" value={editing.sort_order} onChange={(e) => setEditing({ ...editing, sort_order: parseInt(e.target.value || "0", 10) })} className="input" /></Field>
               <label className="flex items-center gap-2 text-sm">
                 <input type="checkbox" checked={editing.is_published} onChange={(e) => setEditing({ ...editing, is_published: e.target.checked })} />

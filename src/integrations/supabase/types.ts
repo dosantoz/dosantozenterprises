@@ -277,9 +277,11 @@ export type Database = {
           is_published: boolean
           name: string
           quote: string
+          rating: number
           role: string | null
           sort_order: number
           updated_at: string
+          user_id: string | null
         }
         Insert: {
           avatar_url?: string | null
@@ -288,9 +290,11 @@ export type Database = {
           is_published?: boolean
           name: string
           quote: string
+          rating?: number
           role?: string | null
           sort_order?: number
           updated_at?: string
+          user_id?: string | null
         }
         Update: {
           avatar_url?: string | null
@@ -299,9 +303,11 @@ export type Database = {
           is_published?: boolean
           name?: string
           quote?: string
+          rating?: number
           role?: string | null
           sort_order?: number
           updated_at?: string
+          user_id?: string | null
         }
         Relationships: []
       }

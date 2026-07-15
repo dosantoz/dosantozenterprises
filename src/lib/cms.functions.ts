@@ -50,11 +50,40 @@ export const listTestimonials = createServerFn({ method: "GET" }).handler(async 
   const sb = publicClient();
   const { data } = await sb
     .from("testimonials")
-    .select("id, name, role, quote, avatar_url, sort_order")
+    .select("id, name, role, quote, avatar_url, sort_order, rating, created_at")
     .eq("is_published", true)
-    .order("sort_order");
+    .order("created_at", { ascending: false });
   return data ?? [];
 });
+
+// Public submit — authenticated users leave their own review
+const submitSchema = z.object({
+  name: z.string().trim().min(1).max(120),
+  role: z.string().trim().max(200).optional().nullable(),
+  quote: z.string().trim().min(4).max(1000),
+  rating: z.number().int().min(1).max(5),
+});
+
+export const submitTestimonial = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((d: unknown) => submitSchema.parse(d))
+  .handler(async ({ data, context }) => {
+    // Upsert by user_id so each user has one review they can revise
+    const { error } = await context.supabase.from("testimonials").upsert(
+      {
+        user_id: context.userId,
+        name: data.name,
+        role: data.role || null,
+        quote: data.quote,
+        rating: data.rating,
+        is_published: true,
+        sort_order: 0,
+      },
+      { onConflict: "user_id" },
+    );
+    if (error) throw new Error(error.message);
+    return { ok: true };
+  });
 
 // -------- Admin CRUD --------
 
@@ -180,6 +209,7 @@ const testimonialSchema = z.object({
   avatar_url: z.string().trim().max(1000).nullable().optional(),
   is_published: z.boolean().default(true),
   sort_order: z.number().int().default(0),
+  rating: z.number().int().min(1).max(5).default(5),
 });
 
 export const upsertTestimonial = createServerFn({ method: "POST" })
