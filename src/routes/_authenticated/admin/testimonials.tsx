@@ -22,6 +22,7 @@ type T = {
   avatar_url: string | null;
   is_published: boolean;
   sort_order: number;
+  rating: number;
 };
 
 function AdminTestimonials() {
