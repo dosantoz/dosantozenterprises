@@ -209,6 +209,7 @@ const testimonialSchema = z.object({
   avatar_url: z.string().trim().max(1000).nullable().optional(),
   is_published: z.boolean().default(true),
   sort_order: z.number().int().default(0),
+  rating: z.number().int().min(1).max(5).default(5),
 });
 
 export const upsertTestimonial = createServerFn({ method: "POST" })
