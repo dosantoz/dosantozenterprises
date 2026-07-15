@@ -44,6 +44,7 @@ function AdminTestimonials() {
           avatar_url: editing.avatar_url,
           is_published: editing.is_published,
           sort_order: editing.sort_order,
+          rating: editing.rating,
         },
       });
       toast.success("Saved");
