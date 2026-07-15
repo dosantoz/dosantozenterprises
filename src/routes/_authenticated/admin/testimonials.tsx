@@ -70,13 +70,14 @@ function AdminTestimonials() {
           <div className="mt-6 flex justify-end">
             <button
               onClick={() =>
-                setEditing({
+              setEditing({
                   name: "",
                   role: "",
                   quote: "",
                   avatar_url: "",
                   is_published: true,
                   sort_order: (q.data?.length ?? 0) * 10 + 10,
+                  rating: 5,
                 })
               }
               className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
